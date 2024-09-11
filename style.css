@@ -1,0 +1,16 @@
+#free-cell{
+    background-color: green;
+}
+#taken-cell{
+    background-color: red;
+}
+#free-cell button{
+    background-color: green;
+    border: none;
+}
+table{
+    border-collapse: collapse;
+    width:90%;
+    margin: 0 auto;
+    text-align: center;
+}
