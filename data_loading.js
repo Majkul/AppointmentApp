@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         scheduleCell.textContent = "Taken"
                     }
                     else{
+                        console.log(dayName + " " + index);
                         scheduleCell.innerHTML = `<button onclick="myFunction()">${daySchedule[index]}</button>`;
                         scheduleCell.id = "free-cell";
                     }
