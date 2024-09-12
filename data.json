@@ -1,10 +1,74 @@
 {
-    "rows": ["9-10", "10-11", "11-12", "12-13", "13-14", "14-15", "15-16", "16-17"],
-    "columns": [
-        {"Monday": ["Free", "Taken", "Free", "Taken", "Free", "Taken", "Free", "Taken"]},
-        {"Tuesday": ["Taken", "Free", "Taken", "Free", "Taken", "Free", "Taken", "Free"]},
-        {"Wednesday": ["Free", "Taken", "Free", "Taken", "Free", "Taken", "Free", "Taken"]},
-        {"Thursday": ["Taken", "Free", "Taken", "Free", "Taken", "Free", "Taken", "Free"]},
-        {"Friday": ["Free", "Taken", "Free", "Taken", "Free", "Taken", "Free", "Taken"]}
-    ]
+  "rows": [
+    "9-10",
+    "10-11",
+    "11-12",
+    "12-13",
+    "13-14",
+    "14-15",
+    "15-16",
+    "16-17"
+  ],
+  "columns": [
+    {
+      "Monday": [
+        "Taken",
+        "Taken",
+        "Free",
+        "Taken",
+        "Free",
+        "Taken",
+        "Free",
+        "Taken"
+      ]
+    },
+    {
+      "Tuesday": [
+        "Taken",
+        "Free",
+        "Taken",
+        "Free",
+        "Taken",
+        "Free",
+        "Taken",
+        "Free"
+      ]
+    },
+    {
+      "Wednesday": [
+        "Taken",
+        "Taken",
+        "Free",
+        "Taken",
+        "Taken",
+        "Taken",
+        "Free",
+        "Taken"
+      ]
+    },
+    {
+      "Thursday": [
+        "Taken",
+        "Free",
+        "Taken",
+        "Free",
+        "Taken",
+        "Free",
+        "Taken",
+        "Free"
+      ]
+    },
+    {
+      "Friday": [
+        "Free",
+        "Taken",
+        "Free",
+        "Taken",
+        "Free",
+        "Taken",
+        "Free",
+        "Taken"
+      ]
+    }
+  ]
 }

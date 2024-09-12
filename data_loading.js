@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     else{
                         console.log(dayName + " " + index);
-                        scheduleCell.innerHTML = `<button onclick="myFunction()">${daySchedule[index]}</button>`;
+                        scheduleCell.innerHTML = `<button onclick="form_application('${dayName + index}')">${daySchedule[index]}</button>`;
                         scheduleCell.id = "free-cell";
                     }
                     rowElement.appendChild(scheduleCell);
