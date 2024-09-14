@@ -9,7 +9,7 @@ app.use(cors());
 
 app.use(express.json());
 
-const dataFilePath = path.join(__dirname, 'data.json');
+const dataFilePath = path.join(__dirname, '../data.json');
 
 const readDataFile = () => {
     const data = fs.readFileSync(dataFilePath);

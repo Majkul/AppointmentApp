@@ -1,7 +1,6 @@
-// script.js
-document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
     // Fetch the JSON file
-    fetch('data.json')
+    fetch('../../data.json')
         .then(response => response.json())  // Parse the JSON data
         .then(data => {
             let tableHead = document.querySelector("#schedule-table thead");
