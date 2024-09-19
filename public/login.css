@@ -34,7 +34,8 @@ h2 {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
     width: 94%;
     padding: 3%;
     margin: 10px 0;

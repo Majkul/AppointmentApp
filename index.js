@@ -44,10 +44,6 @@ app.get("/", (req, res) => {
     res.render("index")
 })
 
-app.get("/register", (req, res) => {
-    res.render("register")
-})
-
 app.get("/login", (req, res) => {
     res.render("login")
 })
@@ -61,11 +57,11 @@ app.post("/auth/register", (req, res) => {
         }
 
         if( result.length > 0 ) {
-            return res.render('register', {
+            return res.render('login', {
                 message: 'This email is already in use'
             })
         } else if(password_reg !== password_confirm) {
-            return res.render('register', {
+            return res.render('login', {
                 message: 'Password Didn\'t Match!'
             })
         }
@@ -74,7 +70,7 @@ app.post("/auth/register", (req, res) => {
 
         console.log(hashedPassword)
        
-        db.query('INSERT INTO users SET?', {name: name_reg, email: email_reg, password: password_reg}, (err, result) => {
+        db.query('INSERT INTO users SET?', {name: name_reg, email: email_reg, password: hashedPassword}, (err, result) => {
             if(error) {
                 console.log(error)
             } else {
@@ -85,6 +81,49 @@ app.post("/auth/register", (req, res) => {
         })        
     })
 })
+app.post("/auth/logowanie", (req, res) => {
+    const { email_login, password_login } = req.body;   
+
+    db.query('SELECT * FROM users WHERE email = ?', [email_login], async (error, results) => {
+        if (error) {
+            console.log(error);
+            return res.render('login', {
+                message: 'An error occurred. Please try again later.'
+            });
+        }
+
+        if (results.length === 0) {
+            return res.render('login', {
+                message: 'Email or password is incorrect!'
+            });
+        }
+        const isMatch = await bcrypt.compare(password_login, results[0].password);
+        if (!isMatch) {
+            // If the password is incorrect
+            return res.render('login', {
+                message: 'Email or password is incorrect!'
+            });
+        }
+        const id = results[0].id;
+        const token = jwt.sign({ id }, process.env.JWT_SECRET, {
+            expiresIn: process.env.JWT_EXPIRES_IN
+        });
+        console.log("Generated Token: ", token);
+
+        const cookieOptions = {
+            expires: new Date(
+                Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+            ),
+            httpOnly: true
+        };
+
+        res.cookie('jwt', token, cookieOptions);
+
+        res.render('index', {
+            message: 'Login successful!'
+        });
+    });
+});
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
