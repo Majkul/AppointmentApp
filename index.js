@@ -99,7 +99,6 @@ app.post("/auth/logowanie", (req, res) => {
         }
         const isMatch = await bcrypt.compare(password_login, results[0].password);
         if (!isMatch) {
-            // If the password is incorrect
             return res.render('login', {
                 message: 'Email or password is incorrect!'
             });
